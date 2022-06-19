@@ -18,14 +18,6 @@ public class MainPage {
         return $("[title='Proceed to checkout']").as("кликнуть для перехода в корзину");
     }
 
-    public SelenideElement mainCheckCartPage() {
-        return $("[id='cart_title']").as("проверить элемент на странице корзины");
-    }
-
-    public SelenideElement mainCheckItemCart() {
-        return $("[class='label label-success']").as("проверить наличие товара в корзине");
-    }
-
     public SelenideElement mainEnterValueMail() {
         return $("[class='inputNew form-control grey newsletter-input']").as("ввести значение в инпут e-mail");
     }

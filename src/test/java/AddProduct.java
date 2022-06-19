@@ -1,4 +1,3 @@
-import io.qameta.allure.Flaky;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,13 +10,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 @Owner("abaryshov")
-public class AuthTest {
+public class AddProduct {
 
     @BeforeEach
     public void setup(){
@@ -38,12 +36,14 @@ public class AuthTest {
         step("Перейти в корзину", () -> {
             TestPages.mainPage.mainClickGoCart()
                     .click();
-            TestPages.mainPage.mainCheckCartPage()
+            TestPages.cardPage.cardCheckCartPage()
                     .shouldBe(visible);
         });
 
         step("Проверить наличие товара в корзине", () -> {
-            TestPages.mainPage.mainCheckItemCart()
+            TestPages.cardPage.cardCheckItemCart()
+                    .shouldBe(visible);
+            TestPages.cardPage.cardCheckItemSkuCart()
                     .shouldBe(visible);
         });
     }
